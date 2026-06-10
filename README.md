@@ -1,6 +1,15 @@
+---
+title: CMMS Électrique
+emoji: ⚡
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+---
+
 # CMMS Électrique — Factory Maintenance Management System
 
-<a href="https://huggingface.co/spaces/jooooniiiiii-lab/cmms-elec-mvp">
+<a href="https://huggingface.co/spaces/Aek31000dz/cmms-elec-mvp">
   <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Space-blue" alt="Hugging Face Space">
 </a>
 
