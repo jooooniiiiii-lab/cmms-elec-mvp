@@ -7,6 +7,9 @@ local_factory.db
 # Configuration (contains API keys)
 config.json
 
+# Hugging Face Space config (safe to track — has no secrets)
+!.huggingface/config.json
+
 # Python
 __pycache__/
 *.py[cod]

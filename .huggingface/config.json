@@ -1,0 +1,10 @@
+{
+  "dockerfile": "Dockerfile.huggingface",
+  "title": "CMMS Électrique",
+  "emoji": "⚡",
+  "sdk": "docker",
+  "sdk_version": "",
+  "app_port": 7860,
+  "base_path": "/",
+  "protected": false
+}

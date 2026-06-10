@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  cmms:
+    build: .
+    container_name: cmms-elec
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      # Persist config and database on host
+      - ./config.json:/app/config.json
+      - ./local_factory.db:/app/local_factory.db
+      # X11 socket for GUI on Linux
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

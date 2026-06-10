@@ -1,0 +1,43 @@
+# Git
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Local data (mounted via volumes)
+config.json
+local_factory.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Environment
+.env
+.env.local
+
+# Hugging Face Space config (only relevant for HF deployment)
+.huggingface/
+
+# OpenCode
+.opencode/
+.sisyphus/
