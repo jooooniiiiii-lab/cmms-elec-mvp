@@ -3,7 +3,9 @@ title: CMMS Électrique
 emoji: ⚡
 colorFrom: blue
 colorTo: green
-sdk: static
+sdk: gradio
+sdk_version: 5.0.0
+app_file: app.py
 ---
 
 # CMMS Électrique — Factory Maintenance Management System
