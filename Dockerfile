@@ -14,8 +14,9 @@ WORKDIR /app
 COPY --chown=user requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy rest of app
+# Copy rest of app and ensure writable for SQLite/config
 COPY --chown=user . .
+RUN chown user:user /app
 
 USER user
 
