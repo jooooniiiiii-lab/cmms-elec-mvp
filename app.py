@@ -180,21 +180,15 @@ with demo:
     save_btn.click(fn=save_keys, inputs=[gemini_in, meta_in, phone_in, fb_in], outputs=[save_md])
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 7860))
+    port = 7860
     print(f"[CMMS] Starting Gradio on 0.0.0.0:{port}", flush=True)
-
-    # Separate launch (no share=True to avoid tunnel blocking on HF Space)
-    demo.queue(default_concurrency_limit=5)
+    os.environ["GRADIO_SERVER_NAME"] = "0.0.0.0"
+    os.environ["GRADIO_SERVER_PORT"] = str(port)
     demo.launch(
         server_name="0.0.0.0",
         server_port=port,
         share=False,
-        prevent_thread_lock=True,
         show_error=True,
         theme=gr.themes.Soft(primary_hue="green", neutral_hue="slate"),
         css="footer { display: none !important; }",
     )
-    print(f"[CMMS] Gradio is running, keeping thread alive...", flush=True)
-    import time
-    while True:
-        time.sleep(60)
