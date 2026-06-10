@@ -118,11 +118,9 @@ def refresh_all():
     return get_workers_list(), get_tasks_list(), get_stats(), get_config_status()
 
 
-with gr.Blocks(
-    title="CMMS Électrique",
-    theme=gr.themes.Soft(primary_hue="green", neutral_hue="slate"),
-    css="footer { display: none !important; }",
-) as demo:
+demo = gr.Blocks(title="CMMS Électrique")
+
+with demo:
     gr.Markdown("# ⚡ CMMS Électrique — Factory Maintenance")
     gr.Markdown("*Algerian cable factory · Law 18-07 compliant · Bilingual AR/EN*")
 
@@ -183,4 +181,12 @@ with gr.Blocks(
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port, share=True)
+    print(f"[CMMS] Starting Gradio on 0.0.0.0:{port}", flush=True)
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=port,
+        share=True,
+        theme=gr.themes.Soft(primary_hue="green", neutral_hue="slate"),
+        css="footer { display: none !important; }",
+    )
+    print("[CMMS] Gradio exited", flush=True)
