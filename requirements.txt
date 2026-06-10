@@ -2,3 +2,4 @@ customtkinter>=5.2.0
 google-generativeai>=0.8.0
 requests>=2.31.0
 gradio>=5.0.0
+audioop-lts>=0.1.0
