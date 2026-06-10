@@ -1,0 +1,32 @@
+# Database
+local_factory.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Configuration (contains API keys)
+config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
