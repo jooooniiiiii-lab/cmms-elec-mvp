@@ -1,3 +1,9 @@
 {
-  "dockerfile": "Dockerfile.huggingface"
+  "sdk": "gradio",
+  "title": "CMMS Électrique",
+  "emoji": "⚡",
+  "colorFrom": "blue",
+  "colorTo": "green",
+  "app_file": "app.py",
+  "fullWidth": true
 }
