@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   cmms:
-    build: .
+    build:
+      dockerfile: Dockerfile.desktop
+      context: .
     container_name: cmms-elec
     network_mode: host
     environment:
