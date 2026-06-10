@@ -15,4 +15,5 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=7860
 EXPOSE 7860
 
-CMD ["python", "app.py"]
+# Use uvicorn — same server stack as known-working HF Docker Spaces
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]

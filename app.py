@@ -179,16 +179,14 @@ with demo:
 
     save_btn.click(fn=save_keys, inputs=[gemini_in, meta_in, phone_in, fb_in], outputs=[save_md])
 
+# Mount Gradio on FastAPI (same pattern as working HF Docker Spaces)
+from fastapi import FastAPI
+
+app = FastAPI(title="CMMS Électrique")
+app = gr.mount_gradio_app(app, demo, path="/")
+
 if __name__ == "__main__":
+    import uvicorn
     port = 7860
-    print(f"[CMMS] Starting Gradio on 0.0.0.0:{port}", flush=True)
-    os.environ["GRADIO_SERVER_NAME"] = "0.0.0.0"
-    os.environ["GRADIO_SERVER_PORT"] = str(port)
-    demo.launch(
-        server_name="0.0.0.0",
-        server_port=port,
-        share=False,
-        show_error=True,
-        theme=gr.themes.Soft(primary_hue="green", neutral_hue="slate"),
-        css="footer { display: none !important; }",
-    )
+    print(f"[CMMS] Starting uvicorn on 0.0.0.0:{port}", flush=True)
+    uvicorn.run(app, host="0.0.0.0", port=port)
