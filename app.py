@@ -182,11 +182,19 @@ with demo:
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
     print(f"[CMMS] Starting Gradio on 0.0.0.0:{port}", flush=True)
+
+    # Separate launch (no share=True to avoid tunnel blocking on HF Space)
+    demo.queue(default_concurrency_limit=5)
     demo.launch(
         server_name="0.0.0.0",
         server_port=port,
-        share=True,
+        share=False,
+        prevent_thread_lock=True,
+        show_error=True,
         theme=gr.themes.Soft(primary_hue="green", neutral_hue="slate"),
         css="footer { display: none !important; }",
     )
-    print("[CMMS] Gradio exited", flush=True)
+    print(f"[CMMS] Gradio is running, keeping thread alive...", flush=True)
+    import time
+    while True:
+        time.sleep(60)
